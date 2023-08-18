@@ -828,6 +828,53 @@ class SystemPatchDictionary():
                         },
                     },
                 },
+                "AMD Legacy Navi": {
+                    "Display Name": "Graphics: AMD Legacy Navi",
+                    "OS Support": {
+                        "Minimum OS Support": {
+                            "OS Major": os_data.os_data.ventura,
+                            "OS Minor": 0
+                        },
+                        "Maximum OS Support": {
+                            "OS Major": os_data.os_data.max_os,
+                            "OS Minor": 99
+                        },
+                    },
+                    "Install": {
+                        "/System/Library/Extensions": {
+                            "AMDRadeonX6000.kext":            "12.5",
+                            "AMDRadeonX6000Framebuffer.kext": "12.5",
+
+                            "AMDRadeonVADriver2.bundle":      "12.5",
+                            "AMDRadeonX6000GLDriver.bundle":  "12.5",
+                            "AMDRadeonX6000MTLDriver.bundle": "12.5",
+                            "AMDRadeonX6000Shared.bundle":    "12.5",
+
+                            "AMDShared.bundle":               "12.5",
+                        },
+                    },
+                },
+                # Support mixed legacy and modern AMD GPUs
+                # Specifically systems using AMD GCN 1-3 and Vega (ex. MacPro6,1 with eGPU)
+                # Assume 'AMD Legacy GCN' patchset is installed alongside this
+                "AMD Legacy Navi Extended": {
+                    "Display Name": "",
+                    "OS Support": {
+                        "Minimum OS Support": {
+                            "OS Major": os_data.os_data.ventura,
+                            "OS Minor": 0
+                        },
+                        "Maximum OS Support": {
+                            "OS Major": os_data.os_data.max_os,
+                            "OS Minor": 99
+                        },
+                    },
+                    "Install": {
+                        "/System/Library/Extensions": {
+                            "AMDRadeonX6000HWServices.kext": "12.5",
+                        },
+                    },
+                },
                 # Support mixed legacy and modern AMD GPUs
                 # Specifically systems using AMD GCN 1-3 and Vega (ex. MacPro6,1 with eGPU)
                 # Assume 'AMD Legacy GCN' patchset is installed alongside this
