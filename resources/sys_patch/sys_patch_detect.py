@@ -42,6 +42,7 @@ class DetectRootPatch:
         self.legacy_gcn     = False
         self.legacy_polaris = False
         self.legacy_vega    = False
+        self.legacy_navi    = False
 
         # Misc Patch Detection
         self.brightness_legacy         = False
@@ -176,6 +177,15 @@ class DetectRootPatch:
                         self.supports_metal = True
                         self.requires_root_kc = True
                         self.amfi_must_disable = True
+                elif gpu.arch == device_probe.AMD.Archs.Navi:
+                     if self.constants.detected_os > os_data.os_data.monterey:
+                        if "AVX2" in self.constants.computer.cpu.leafs:
+                            continue
+
+                        self.legacy_navi = True
+                        self.supports_metal = True
+                        self.requires_root_kc = True
+                        self.amfi_must_disable = True
                 elif gpu.arch == device_probe.Intel.Archs.Iron_Lake:
                     if self.constants.detected_os > non_metal_os:
                         self.iron_gpu = True
@@ -235,6 +245,7 @@ class DetectRootPatch:
             # ex. MacPro6,1 and MacBookPro11,5 with eGPUs
             self.legacy_polaris = False
             self.legacy_vega = False
+            self.legacy_navi = false
 
         if self.constants.detected_os <= os_data.os_data.monterey:
             # Always assume Root KC requirement on Monterey and older
@@ -291,6 +302,7 @@ class DetectRootPatch:
         self.legacy_gcn                = False
         self.legacy_polaris            = False
         self.legacy_vega               = False
+        self.legacy_navi               = False
         self.brightness_legacy         = False
         self.legacy_audio              = False
         self.legacy_gmux               = False
@@ -564,6 +576,7 @@ class DetectRootPatch:
             "Graphics: AMD Legacy GCN":                    self.legacy_gcn,
             "Graphics: AMD Legacy Polaris":                self.legacy_polaris,
             "Graphics: AMD Legacy Vega":                   self.legacy_vega,
+            "Graphics: AMD Legacy Navi":                   self.legacy_navi,
             "Graphics: Intel Ironlake":                    self.iron_gpu,
             "Graphics: Intel Sandy Bridge":                self.sandy_gpu,
             "Graphics: Intel Ivy Bridge":                  self.ivy_gpu,
