@@ -709,7 +709,7 @@ class PatchSysVolume:
                     else:
                         logging.info(f"- Running Process:\n{process}")
                         utilities.process_status(subprocess.run(process, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True))
-        if any(x in required_patches for x in ["AMD Legacy GCN", "AMD Legacy Polaris", "AMD Legacy Vega"]):
+        if any(x in required_patches for x in ["AMD Legacy GCN", "AMD Legacy Polaris", "AMD Legacy Vega", "AMD Legacy Navi"]):
             sys_patch_helpers.SysPatchHelpers(self.constants).disable_window_server_caching()
         if any(x in required_patches for x in ["Intel Ivy Bridge", "Intel Haswell"]):
             sys_patch_helpers.SysPatchHelpers(self.constants).remove_news_widgets()
