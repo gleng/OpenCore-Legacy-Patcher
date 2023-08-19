@@ -2677,19 +2677,19 @@ smbios_dictionary = {
     "iMacPro1,1": {
         "Marketing Name": "iMac Pro (2017)",
         "Board ID": "Mac-7BA5B2D9E42DDD94",
-        "FirmwareFeatures": "0xFD8FF53E",
-        "SecureBootModel": "j137",
-        "CPU Generation": cpu_data.CPUGen.skylake.value,
-        "Max OS Supported": os_data.os_data.max_os,
-        "Wireless Model": device_probe.Broadcom.Chipsets.AppleBCMWLANBusInterfacePCIe,
-        "Bluetooth Model": bluetooth_data.bluetooth_data.UART,
-        "Ethernet Chipset": "Aquantia",
-        "5K Display": True,
+        "FirmwareFeatures": "0x8E90FF576",
+        "SecureBootModel": None,
+        "CPU Generation": cpu_data.CPUGen.ivy_bridge.value,
+        "Max OS Supported": os_data.os_data.monterey,
+        "Wireless Model": device_probe.Broadcom.Chipsets.AirportBrcmNIC,
+        "Bluetooth Model": bluetooth_data.bluetooth_data.BRCM20702_v2,
+        "Ethernet Chipset": "Broadcom",
+        "5K Display": False,
         "Stock GPUs": [
-            device_probe.AMD.Archs.Vega,
+            device_probe.AMD.Archs.Navi,
         ],
         "Stock Storage": [
-            "NVMe"
+            "SATA 3.5"
         ],
     },
     "MacPro1,1": {
