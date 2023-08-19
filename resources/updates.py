@@ -9,7 +9,7 @@ from packaging import version
 
 from resources import constants, network_handler
 
-REPO_LATEST_RELEASE_URL: str = "https://api.github.com/repos/dortania/OpenCore-Legacy-Patcher/releases/latest"
+REPO_LATEST_RELEASE_URL: str = "https://api.github.com/repos/gleng/OpenCore-Legacy-Patcher/releases/latest"
 
 
 class CheckBinaryUpdates:
@@ -143,7 +143,7 @@ class CheckBinaryUpdates:
                     "Version": latest_remote_version,
                     "Link": asset["browser_download_url"],
                     "Type": self._determine_remote_type(asset["name"]),
-                    "Github Link": f"https://github.com/dortania/OpenCore-Legacy-Patcher/releases/{latest_remote_version}",
+                    "Github Link": f"https://github.com/gleng/OpenCore-Legacy-Patcher/releases/{latest_remote_version}",
                 }
                 return self.latest_details
 
