@@ -150,6 +150,16 @@ class GenerateRootPatchSets:
             else:
                 required_patches.update({"Revert GVA Downgrade": all_hardware_patchset["Graphics"]["Revert GVA Downgrade"]})
 
+        if self.hardware_details["Graphics: AMD Legacy Navi"] is True:
+            required_patches.update({"Monterey GVA": all_hardware_patchset["Graphics"]["Monterey GVA"]})
+            required_patches.update({"Monterey OpenCL": all_hardware_patchset["Graphics"]["Monterey OpenCL"]})
+            required_patches.update({"AMD Legacy Navi": all_hardware_patchset["Graphics"]["AMD Legacy Navi"]})
+            required_patches.update({"AMD OpenCL": all_hardware_patchset["Graphics"]["AMD OpenCL"]})
+            if self.hardware_details["Graphics: AMD Legacy GCN"] is True:
+                required_patches.update({"AMD Legacy Navi Extended": all_hardware_patchset["Graphics"]["AMD Legacy Navi Extended"]})
+            else:
+                required_patches.update({"Revert GVA Downgrade": all_hardware_patchset["Graphics"]["Revert GVA Downgrade"]})
+
         if self.hardware_details["Brightness: Legacy Backlight Control"] is True:
             required_patches.update({"Legacy Backlight Control": all_hardware_patchset["Brightness"]["Legacy Backlight Control"]})
 
